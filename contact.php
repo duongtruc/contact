@@ -11,7 +11,7 @@ $search_url = '/requesters/search?';
 $ticket_url = '/ticket/modify';
 $auth = "Authorization: Bearer ndthelp@gmail.com:bf760bb00bf5ae26c3114d05c33b312d8b573185";
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_HTTPHEADER, array($auth, 'Accept: application/json'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array($auth, 'Accept: application/json', 'Content-Type: application/json'));
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
@@ -26,7 +26,7 @@ if ($result && count($result['data'])) {
         'ticket'    => array(
             'subject'       => $subject,
             'description'   => $message,
-            'requester_id'  =>$requester_id
+            'requester_id'  => $requester_id
         )
     );
     curl_setopt($ch, CURLOPT_POSTFIELDS, $ticket);
