@@ -29,7 +29,8 @@ if ($result && count($result['data'])) {
             'requester_id'  => $requester_id
         )
     );
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $ticket);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($ticket));
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_URL,$ROOT_URL.$ticket_url);
     $result = curl_exec($ch);
     echo $result;
