@@ -10,7 +10,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json' , $auth));
 $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);//get status code
 $result=curl_exec ($ch);
-var_dump($result);
+echo "-----".$result;
 curl_close ($ch);
 ?>
 <h3>
