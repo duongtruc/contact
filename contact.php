@@ -12,6 +12,9 @@ curl_setopt($ch, CURLOPT_HEADER, 0);
 //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $result = curl_exec ($ch);
+echo curl_getinfo($ch) . '<br/>';
+echo curl_errno($ch) . '<br/>';
+echo curl_error($ch) . '<br/>';
 var_dump($result);
 curl_close ($ch);
 ?>
