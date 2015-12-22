@@ -24,6 +24,13 @@
                         </div>
 
                         <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="subject" name="subject" type="text" placeholder="Subject" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                             <div class="col-md-8">
                                 <input id="email" name="email" type="email" placeholder="Email Address" class="form-control" required>
