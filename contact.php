@@ -4,9 +4,11 @@ ini_set('display_errors', 1);
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $email = $_POST['email'];
+$subject = $_POST['subject'];
 $message = $_POST['message'];
 $ROOT_URL='https://cstest.lvtn.xyz/api';
 $search_url = '/requesters/search?';
+$ticket_url = '/ticket/modify';
 $auth = "Authorization: Bearer ndthelp@gmail.com:bf760bb00bf5ae26c3114d05c33b312d8b573185";
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_HTTPHEADER, array($auth, 'Accept: application/json'));
@@ -17,8 +19,21 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_URL,$ROOT_URL.$search_url.'email='.$email);
 $result = curl_exec($ch);
 $result = json_decode($result, true);
-var_dump($result);
-//echo $result->{'data'};
+if ($result && count($result['data'])) {
+    $requester = $result['data'][0];
+    $requester_id = $requester['_id'];
+    $ticket = array(
+        'ticket'    => array(
+            'subject'       => $subject,
+            'description'   => $message,
+            'requester_id'  =>$requester_id
+        )
+    );
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+    curl_setopt($ch, CURLOPT_URL,$ROOT_URL.$ticket_url);
+    $result = curl_exec($ch);
+    echo $result;
+}
 curl_close ($ch);
 ?>
 <h3>
