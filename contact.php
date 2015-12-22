@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 $username='ndthelp@gmail.com';
 $token='bf760bb00bf5ae26c3114d05c33b312d8b573185';
 $URL='https://cstest.lvtn.xyz/api/requesters/search?email=duongtruc.92@gmail.com';
