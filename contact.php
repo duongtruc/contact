@@ -9,13 +9,14 @@ $ROOT_URL='https://cstest.lvtn.xyz/api';
 $search_url = '/requesters/search?';
 $auth = "Authorization: Bearer ndthelp@gmail.com:bf760bb00bf5ae26c3114d05c33b312d8b573185";
 $ch = curl_init();
-curl_setopt($ch, CURLOPT_HTTPHEADER, array($auth));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array($auth, 'Accept: application/json'));
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_URL,$ROOT_URL.$search_url.'email='.$email);
-$result = json_decode(curl_exec ($ch));
+$result = json_decode(curl_exec($ch));
+var_dump($result);
 echo $result['is_error'];
 curl_close ($ch);
 ?>
