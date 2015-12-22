@@ -16,9 +16,9 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_URL,$ROOT_URL.$search_url.'email='.$email);
 $result = curl_exec($ch);
-$result = json_decode($result);
+$result = json_decode($result, true);
 var_dump($result);
-echo $result->{'data'};
+//echo $result->{'data'};
 curl_close ($ch);
 ?>
 <h3>
