@@ -46,7 +46,6 @@ if ($result && count($result['data'])) {
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_URL,$ROOT_URL.'/api/requester/add');
     $result = json_decode(curl_exec($ch), true);
-    var_dump($result);
     $requester = $result['data'];
     $requester_id = $requester['_id'];
     $ticket = json_encode(array(
@@ -56,6 +55,7 @@ if ($result && count($result['data'])) {
             'requester_id'  => $requester_id
         )
     ));
+    echo $ticket;
     curl_setopt($ch, CURLOPT_POSTFIELDS, $ticket);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_URL,$ROOT_URL.$ticket_url);
