@@ -33,7 +33,6 @@ if ($result && count($result['data'])) {
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_URL,$ROOT_URL.$ticket_url);
     $result = curl_exec($ch);
-    echo $result;
 } else {
     $requester = json_encode(array(
         'requester'    => array(
@@ -46,10 +45,8 @@ if ($result && count($result['data'])) {
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_URL,$ROOT_URL.'/requester/add');
     $result = json_decode(curl_exec($ch), true);
-    var_dump(curl_getinfo($ch));
-    var_dump($result);
     $requester = $result['data'];
-    $requester_id = $requester['_id'];
+    $requester_id = $requester['id'];
     $ticket = json_encode(array(
         'ticket'    => array(
             'subject'       => $subject,
@@ -57,16 +54,34 @@ if ($result && count($result['data'])) {
             'requester_id'  => $requester_id
         )
     ));
-    echo $ticket;
     curl_setopt($ch, CURLOPT_POSTFIELDS, $ticket);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_URL,$ROOT_URL.$ticket_url);
     $result = curl_exec($ch);
-    var_dump(curl_getinfo($ch));
-    echo $result;
 }
 curl_close ($ch);
 ?>
-<h3>
-    Thanks for your infomation, we'll contact you back as soon as possible
-</h3>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form>
+                    <fieldset>
+                        <legend class="text-center header">Contact us</legend>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .header {
+        color: #36A0FF;
+        font-size: 27px;
+        padding: 10px;
+    }
+</style>
+
