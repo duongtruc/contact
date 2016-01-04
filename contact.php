@@ -33,7 +33,6 @@ if ($result && count($result['data'])) {
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_URL,$ROOT_URL.$ticket_url);
     $result = curl_exec($ch);
-    var_dump($result);
 } else {
     $requester = json_encode(array(
         'requester'    => array(
