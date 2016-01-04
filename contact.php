@@ -6,7 +6,7 @@ $last_name = $_POST['last_name'];
 $email = $_POST['email'];
 $subject = $_POST['subject'];
 $message = $_POST['message'];
-$ROOT_URL='https://cstest.lvtn.xyz/api';
+$ROOT_URL='https://cstest.cskhlvtn.xyz/api';
 $search_url = '/requesters/search?';
 $ticket_url = '/ticket/modify';
 $auth = "Authorization: Bearer ndthelp@gmail.com:bf760bb00bf5ae26c3114d05c33b312d8b573185";
@@ -61,7 +61,6 @@ if ($result && count($result['data'])) {
 }
 curl_close ($ch);
 ?>
-<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <div class="container">
     <div class="row">
