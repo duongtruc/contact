@@ -68,7 +68,7 @@ curl_close ($ch);
             <div class="well well-sm">
                 <form>
                     <fieldset>
-                        <legend class="text-center header>Many thanks for your information, We'll contact you back as soon as possible</legend>
+                        <legend class="text-center header">Many thanks for your information, We'll contact you back as soon as possible</legend>
                     </fieldset>
                 </form>
             </div>
