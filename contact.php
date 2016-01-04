@@ -21,6 +21,7 @@ $result = curl_exec($ch);
 $result = json_decode($result, true);
 if ($result && count($result['data'])) {
     $requester = $result['data'][0];
+    var_dump($requester);
     $requester_id = $requester['_id'];
     $ticket = json_encode(array(
         'ticket'    => array(
